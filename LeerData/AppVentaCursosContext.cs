@@ -10,6 +10,7 @@ namespace LeerData
 
         public DbSet<Curso> Curso {get;set;}
         public DbSet<Precio> Precio {get;set;}
+        public DbSet<Comentario> Comentario {get;set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

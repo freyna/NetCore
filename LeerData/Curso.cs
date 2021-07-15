@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace LeerData
 {
@@ -10,5 +11,6 @@ namespace LeerData
         public DateTime FechaPublicacion {get; set;}
         //public byte[] Foto
         public Precio PrecioPromocion { get; set; }
+        public ICollection<Comentario> ComentarioLista{get;set;}
     }
 }
