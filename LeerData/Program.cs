@@ -12,11 +12,24 @@ namespace LeerData
 
             using (var db = new AppVentaCursosContext())
             {
-                var cursos = db.Curso.AsNoTracking();
+                #region Primer ejemplo
+                // var cursos = db.Curso.AsNoTracking();
                 
-                foreach (var curso in cursos)
+                // foreach (var curso in cursos)
+                // {
+                //     Console.WriteLine(curso.Titulo);
+                // }
+                #endregion
+
+                var cursos = db.Curso.Include(item=>item.InstructorLink).ThenInclude(item=>item.Instructor);
+
+                foreach(var curso in cursos)
                 {
                     Console.WriteLine(curso.Titulo);
+                    foreach (var instructorLink in curso.InstructorLink)
+                    {
+                        Console.WriteLine("====> " + instructorLink.Instructor.Nombre);
+                    }
                 }
             }
         }
